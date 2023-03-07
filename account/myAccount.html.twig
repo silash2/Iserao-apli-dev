@@ -1,0 +1,48 @@
+
+{% extends 'pins/layouts/base.html.twig' %}
+{%block title 'profile'%}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-3 mx-auto">
+            <h1 class="text-center my-5">Profile</h1>
+            <div class="mt-2 mb-2" style="margin-left: 27%;"><img id="profilImage"  src="{{ (app.user.imageName ? vich_uploader_asset(app.user): asset('images/iserao.jpg'))|imagine_filter('rounded_output_medium')}}"  /> </div>
+            <div>
+              
+                    <h1 class="text-center">{{app.user.fullName}}</h1>
+                    
+                    <p class="lead text-center mt-2">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#000000" d="M22,4.9C22,3.9,21.1,3,20.1,3H3.9C2.9,3,2,3.9,2,4.9v13.1C2,19.1,2.9,20,3.9,20h16.1c1.1,0,1.9-0.9,1.9-1.9V4.9z M8.3,14.1l-3.1,3.1c-0.2,0.2-0.5,0.3-0.7,0.3S4,17.4,3.8,17.2c-0.4-0.4-0.4-1,0-1.4l3.1-3.1c0.4-0.4,1-0.4,1.4,0S8.7,13.7,8.3,14.1z M20.4,17.2c-0.2,0.2-0.5,0.3-0.7,0.3s-0.5-0.1-0.7-0.3l-3.1-3.1c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l3.1,3.1C20.8,16.2,20.8,16.8,20.4,17.2z M20.4,7.2l-7.6,7.6c-0.2,0.2-0.5,0.3-0.7,0.3s-0.5-0.1-0.7-0.3L3.8,7.2c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l6.9,6.9L19,5.8c0.4-0.4,1-0.4,1.4,0S20.8,6.8,20.4,7.2z"/></svg> E-mail: {{app.user.email}}
+                    </p>
+                    
+                    <p class="text-center">
+
+
+                        profession: {{app.user.profession}}
+                    </p>
+                   
+                    <p class="text-center">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="green"><path d="M0 0h24v24H0z" fill="none"/><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> phone number: {{app.user.phoneNumber}}
+                    
+                    </p>
+                    
+                    <p class="text-center">
+                        
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="green"><path d="M0 0h24v24H0z" fill="none"/><path d="M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg> Adress: {{app.user.adress}}
+                    </p>
+                    
+            </div>
+            
+            <div class="text-center">
+                <a href="{{path('app_account_edit')}}">Edit profile</a>|<a href="#">change password</a>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+{% endblock %}

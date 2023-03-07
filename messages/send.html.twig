@@ -1,0 +1,18 @@
+{%extends 'pins/layouts/base.html.twig'%}
+{%block title 'send message'%}
+{%block body%}
+
+    <div class="col-md-4 mx-auto">
+        <h1>Envoyer un message</h1>
+        {{form_start(form)}}
+
+        {{form(form.recipient, {'label':'destinataire'})}}
+        {{form(form.message, {'label': 'message'})}}
+
+        <button type="submit" class="btn btn-primary ">Envoyer</button>
+        {{form_end(form)}}
+    </div>
+
+    
+
+{%endblock%}

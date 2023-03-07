@@ -1,0 +1,107 @@
+
+{% extends 'pins/layouts/base.html.twig' %}
+
+{% block title pin.title %}
+
+{% block body %}
+
+<center>
+    <div class="container">
+        <article id="article">
+            <div id="pr">
+                <big id="parametre"> </big>
+            </div>
+            <h1 class="text-center mt-5 mb-5">{{pin.title}} </h1>
+
+
+            <!-- displaying pin image and description  -->
+            <div>
+    
+                <a href="{{(pin.imageName ? vich_uploader_asset(pin): asset('images/iserao.jpg'))}}"> 
+                    
+                    <img id="show" src="{{ (pin.imageName ? vich_uploader_asset(pin): asset('images/iserao.jpg'))|imagine_filter('squared_output_medium')}}" alt="{{pin.title}}" class="rounded-top"/>
+                </a>
+    
+            </div>
+
+            <!-- pin description -->
+            <div id="texts">
+                <p  class="text-break">
+                    {{pin.description}}
+                </p>
+            </div>
+
+            <!-- created and submitted text-->
+            <h6> <small style="padding-left: 4%;" id="show" class="text-muted"> Submitted by {{pin.user.username}} {{pin.createdAt|ago}}</small></h6>
+            
+            <!-- <div id="commentaires"> -->
+               
+            <!-- </div> -->
+            <div id="les_commentaires">
+                {{include('pins/commentaire/comment_affiche.html.twig')}}
+            </div>
+            
+            <!-- comment input -->
+            {%if app.user%}
+                <div id="add_comment" class="mb-4 mt-4">
+                    {{include('pins/commentaire/commentaire_input.html.twig')}}
+                </div>
+            {%else%}
+                <h8 class="mb-3"> <a href="{{path('app_register')}}"> vous devez vous connecter pour commenter</a></h8>
+            {%endif%}
+
+            <div id="btn">
+
+            <!-- delete and edit pin allowance -->
+            {%if app.user %}
+
+                <!-- clicking on more and display edit and delete button on the bellow  -->
+                {%if( app.user.username == pin.user.username)%}
+
+                    <a href="{{path('app_pins_edit',{id:pin.id})}}" class="btn btn-primary">Edit</a> &nbsp;|&nbsp;
+                    <a href="#" onclick="event.preventDefault();confirm('voulez vous supprimer pin #{{pin.id}} ?') &&   document.getElementById('js_form_delete').submit();" class="btn btn-danger">Delete</a> &nbsp;|&nbsp;
+                    <a href="{{path('app_home')}}">Home</a>
+                    {%else %}
+                <p id="non"></p>
+                    
+                {%endif%}
+
+            {%else %}
+                <p id="non"></p>
+
+            {%endif%}
+
+            
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+        </article>
+       
+    </div>
+        <script>
+
+    
+                //event listner on response query
+                document.querySelectorAll("[data-reply]").forEach(element => {
+                    element.addEventListener("click", function(){
+                        document.querySelector("#comment_form_parent_id").Value.dataset.id;
+                    });
+                    
+                })
+            
+            
+          
+        </script>
+       
+    <form class="mb-5" id="js_form_delete" action="{{path('app_pins_delete',{id: pin.id})}}" style="display: none">
+        <!-- csrf token for security on deleting manipulation -->
+        
+        <input type="hidden" name="csrf_token" value="{{csrf_token('pin_delete_'~pin.id)}}">
+        <input type="hidden" name="methode" value="DELETE">
+    </form>
+
+
+    </div>
+</center>
+{% endblock %}

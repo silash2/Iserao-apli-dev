@@ -1,0 +1,17 @@
+
+
+
+
+{{form_start(form)}}
+    
+    {{form_row(form.imageFile, {'label': 'pin image'})}}
+    <br>
+    
+    {{form_row(form.title, {'label': 'title'})}}
+   
+    <br>
+    {{form_row(form.description, {'label': 'description'})}}
+
+    <input type="submit" value="{{submitButtonText}}" formnovalidate id="insert" class="btn btn-primary">
+
+{{form_end(form)}}

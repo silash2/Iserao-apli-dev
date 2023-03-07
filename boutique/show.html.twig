@@ -1,0 +1,111 @@
+{% extends 'pins/layouts/base.html.twig'%}
+
+{%block title boutique.name %}
+
+
+{% block body %}
+
+
+    <div class="col-md-12 ">
+        <h1 class="text-center my-5">{{ boutique.name }}</h1>
+
+        
+
+        <article>
+            <!-- menu dans boutique -->
+            <div>
+                <hr style="background-color:black;">
+                        <big id="hides">
+                            
+                            &nbsp;
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="50px" viewBox="0 0 24 24" width="50px" fill="#000000"><rect fill="none" height="24" width="24"/><path d="M3,14h4v-4H3V14z M3,19h4v-4H3V19z M3,9h4V5H3V9z M8,14h13v-4H8V14z M8,19h13v-4H8V19z M8,5v4h13V5H8z"/></svg>
+                            
+                            &nbsp;
+                            
+                        </big>
+
+                    
+                        <div id="menus">
+                            <br>
+                            <a href="{{ path('app_boutique_user', {id: boutique.id}) }}" class="btn btn-primary mx-auto" style="margin-bottom: 5mm;margin-left: 2.5cm;">mes boutiques</a>
+                            <br>
+                            <a href="{{ path('app_boutique_publication', {id: boutique.id}) }}" class="btn btn-primary mx-auto" style="margin-bottom: 5mm;margin-left: 2.5cm;">publier des pins</a>
+                            <br>
+                            <br>
+                        </div>
+
+                <hr style="background-color:black">
+            </div>
+
+
+           
+            
+                        {% if pins|length >  0 %}
+
+                            <!-- show numbers of pins inside pages with pluralize methods -->
+                            <h1 class="mt-4 mb-5 text-center text-muted" >
+                                {{pluralize(pins|length, 'pin')}}
+                            </h1>
+                            
+                            <!-- displaying image per three -->
+                            {%for row in pins|batch(3) %}
+                            
+                                <div class="row mb-5 container mx-auto">
+
+
+                                    {% for pin in row %}
+                                            
+                                        <div class="col-md-3">
+                                            <article class=" bg-blue rounded shadow" id="{{pin.id}}">
+                                                <div class="pin mw-50 overflow-hidden">
+                                                    <a href="{{path('app_pins_show',{id:pin.id})}}">
+
+                                                    <img id="index" src="{{ (pin.imageName ? vich_uploader_asset(pin): asset('images/iserao.jpg'))|imagine_filter('squared_output_medium')}}" alt="{{pin.title}}" class="w-100 rounded-top"/> 
+
+                                                    </a>
+                                                </div>
+                                                
+                                                
+                                                <h5><a href="{{path('app_pins_show',{id:pin.id})}}" id="title" style="padding-top: 5%;padding-left: 4%;"class="text-decoration-none">{{pin.title|u.truncate(20, '...', false)}}</a> </h5>
+                                        
+                                                <p style="padding-left:4%; padding-right: 4%;" class="text-break">{{pin.description|u.truncate(10, '...', false)}}</p>
+
+
+                                                <!-- use pluralize extensions to show number of commentaire -->
+                                                <p class="text-center"><a href="{{path('app_pins_show',{id:pin.id})}}">{{pluralize(pin.comments|length, 'commentaire')}}</a> </p>
+
+                                                
+
+                                                <h6> <small style="padding-left: 4%;" class="text-muted"> Submitted by {{pin.user.username}} {{pin.createdAt|ago}}</small></h6>
+                                
+
+
+                                            </article>
+                                            
+                                            
+                                                
+                                        </div>
+                                    {%endfor%}
+                            {%endfor%}
+                        {%else%}
+                            <h3>
+                                there is no pins publised yet 
+                            </h3>
+
+                        {%endif%}
+        
+
+
+                
+            
+            
+
+           
+                
+        </article>
+
+    </div>
+
+    
+{% endblock %}

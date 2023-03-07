@@ -1,0 +1,18 @@
+
+{{form_start(comment_form)}}
+
+                    
+    <div class="col-md-12">
+                        
+            <div class="col-md-12" id="ajout_commentaire">
+                {{form_widget(comment_form.text)}}
+            </div>
+            <div class="col-md-3 btn btn-primary press" id="ajout_commentaire" style="margin-left: 50%;">
+                                
+                {{form_row(comment_form.submit,{'label':  'envoyer'})}}
+            </div>
+
+    </div>
+    <br>
+                    
+{{form_end(comment_form)}}

@@ -1,0 +1,10 @@
+
+
+{{ form_start(form) }}
+
+    {{ form_row(form.name , {'label': 'nom de la boutique'}) }}
+    <br>
+    {{form_row(form.description)}}
+
+    <button class="btn btn-primary">{{ button_label|default('create boutique') }}</button>
+{{ form_end(form) }}

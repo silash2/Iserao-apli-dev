@@ -1,0 +1,25 @@
+
+
+{{form_start(form)}}
+<div class="col-md-4 mx-auto" style=" margin-bottom: 5%;" required autofocus>
+    
+    {{ form_row(form.username,{'label': 'username'} )}}
+    <br>
+    {{form_row(form.firstName, {'label':'firstname'})}}
+    <br>
+    {{form_row(form.lastName, {'label':'Last name'})}}
+    <br>
+    {{form_row(form.email, {'label':'e-mail'})}}
+    <br>
+    {{form_row(form.birthAt, {'label':'Date of birth  '})}}
+    <br>
+    {{form_row(form.adress)}} 
+    <br>
+    {{form_row(form.phoneNumber)}} 
+    <br>
+    {{form_row(form.profession, {'label':'profession '})}} 
+
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">update profil</button>
+</div>
+{{ form_end(form) }}  

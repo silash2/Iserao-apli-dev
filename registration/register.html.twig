@@ -1,0 +1,27 @@
+
+{% extends 'pins/layouts/base.html.twig' %}
+
+{% block body %}
+
+    <div class="col-md-12 container">
+        <div class="">
+            {% for flash_error in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+            {% endfor %}
+    
+            <h1 class="text-center my-4 mb-4">Register</h1>
+
+            <div class="col-md-4 mx-auto">
+                {{include('registration/partials/_form.html.twig') }}
+            </div>
+         
+        </div>
+       
+
+       
+    </div>
+    
+        
+        
+    
+{% endblock %}

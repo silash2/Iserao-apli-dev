@@ -1,0 +1,17 @@
+{% extends 'pins/layouts/base.html.twig' %}
+{%block title 'New Boutique'%}
+
+
+
+
+{% block body %}
+    <div class="col-md-4 mx-auto">
+
+        <h1 class="my-5">Create new Boutique</h1>
+
+        {{ include('boutique/_form.html.twig') }}
+
+        <a href="{{ path('app_boutique_index') }}">mes boutiques</a>
+    </div>
+    
+{% endblock %}

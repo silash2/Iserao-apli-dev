@@ -1,0 +1,29 @@
+
+
+{%block body%}
+
+    
+        {% for comment in pin.comments %}
+            
+                <hr>
+                <div class="col-md-4 mt-4 text-align"data-reply data-id="{{comment.id}}">
+                    <b>
+                        <!-- recevoir le nom de l'utilisateur auth du commentaire -->
+                        <a href="{{path('app_account')}}">{{comment.user.username}}</a>
+                    </b>
+                </div>
+                <p id="commentaire" >{{comment.text}}</p>
+            
+                <small class="mb-5 text-muted">submitted {{comment.createdAt|date('d l Y h:i')}}</small>
+                
+                <p>
+                    <a href="#" class="btn btn-primary press">Reagir</a>|
+                    <a href="#ajout_commentaire" data-reply data-id="{{comment.id}}" class="btn btn-primary press">Repondre</a>|
+                    <a href="#" class="btn btn-primary press">Signaler</a>
+                </p>
+            
+
+            
+        {%endfor%}
+    
+{%endblock%}

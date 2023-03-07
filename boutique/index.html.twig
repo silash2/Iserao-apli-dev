@@ -1,0 +1,43 @@
+{% extends 'pins/layouts/base.html.twig' %}
+
+{%block title 'Boutiques'%}
+
+{% block body %}
+
+        <div class="col-md-9 mx-auto">
+            <h1 class="text-center my-5">Mes Boutiques</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for boutique in boutiques %}
+                    <tr>
+                        <td>{{ boutique.id }}</td>
+                        <td>{{ boutique.name }}</td>
+                        <td>{{ boutique.description }}</td>
+                        <td>
+                            <a href="{{ path('app_boutique_show', {'id': boutique.id}) }}" class= "btn btn-primary">show</a>
+                            <a href="{{ path('app_boutique_edit', {'id': boutique.id}) }}"class= "btn btn-primary">edit</a>
+                            <a href="{{path('app_boutique_delete', {'id':boutique.id})}}" class="btn btn-danger">delete</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="{{ path('app_boutique_new') }}">Create new</a>
+        </div>
+    
+    
+{% endblock %}

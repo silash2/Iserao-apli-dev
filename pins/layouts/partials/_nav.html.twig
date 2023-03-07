@@ -1,0 +1,162 @@
+
+
+
+
+
+
+<nav class="navbar-dark col fixed-top card-header bg-dark" id="nav" style="margin-bottom:8cm;">
+        <div class="container">
+            
+            <b  id="hide">
+                
+            </b>         
+            <div id="menu">
+              <a  href="{{path('app_home')}}" id="parent" class="">
+                <small>
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="white"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Iserao
+                </small>
+              </a>
+
+              <br>
+                  
+              {%if app.user %}
+              
+              
+                    <a href="{{path('app_account')}}" id="parent">
+                      <small>
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="white"><g><rect fill="none" height="24" width="24"/></g><g><path d="M13,8c0-2.21-1.79-4-4-4S5,5.79,5,8s1.79,4,4,4S13,10.21,13,8z M11,8c0,1.1-0.9,2-2,2S7,9.1,7,8s0.9-2,2-2S11,6.9,11,8z M1,18v2h16v-2c0-2.66-5.33-4-8-4S1,15.34,1,18z M3,18c0.2-0.71,3.3-2,6-2c2.69,0,5.78,1.28,6,2H3z M20,15v-3h3v-2h-3V7h-2v3h-3v2 h3v3H20z"/></g></svg>  Account
+                      </small>
+                    </a>
+                <br>
+                
+                    
+                    <a href="{{path('app_logout')}}" id="parent">
+                      <small>
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="white"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg> Log Out
+                      </small> 
+                    </a>
+                
+                <br>
+              
+                    <a href="{{path('app_messages')}}" id="parent" >
+                      <small id="mp1">
+
+                      </small>
+                    </a>
+                <br>
+
+              
+                    <a href="{{path('app_boutique_index')}}" id="parent">
+                      <small>
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+                            <path fill="white" d="M5,8h14c1.7,0,3-1.3,3-3s-1.3-3-3-3H5C3.3,2,2,3.3,2,5S3.3,8,5,8z M18,3.6c0.8,0,1.5,0.7,1.5,1.5S18.8,6.6,18,6.6s-1.5-0.7-1.5-1.5S17.2,3.6,18,3.6z M19,9H5c-1.7,0-3,1.3-3,3s1.3,3,3,3h14c1.7,0,3-1.3,3-3S20.7,9,19,9z M18,13.6
+                            c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5S18.8,13.6,18,13.6z M19,16H5c-1.7,0-3,1.3-3,3s1.3,3,3,3h14c1.7,0,3-1.3,3-3S20.7,16,19,16z M18,20.6c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5S18.8,20.6,18,20.6z"/>
+                          </svg>  Mes business
+                      </small> 
+                    </a>
+                 
+                
+             <br>
+
+              {% else %}
+              
+              
+                  <a class="" id="parent" href="">Pin Fusee</a>
+                
+                <br>
+              
+                  <a href="{{path('app_register')}}" id="parent">Register</a>
+                
+                <br>
+              
+                  <a href="{{path('app_login')}}" id="parent">Connexion</a>
+                
+                
+              {% endif %}
+                
+              <br>
+              <br>
+
+          
+            </div>
+          <div id="men">
+            <a  href="{{path('app_home')}}" id="parent" class=""> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="white"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Iserao</a>
+
+            
+                  
+              {%if app.user %}
+              
+              
+                    <a href="{{path('app_account')}}" id="parent">
+                      <small>
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="white"><g><rect fill="none" height="24" width="24"/></g><g><path d="M13,8c0-2.21-1.79-4-4-4S5,5.79,5,8s1.79,4,4,4S13,10.21,13,8z M11,8c0,1.1-0.9,2-2,2S7,9.1,7,8s0.9-2,2-2S11,6.9,11,8z M1,18v2h16v-2c0-2.66-5.33-4-8-4S1,15.34,1,18z M3,18c0.2-0.71,3.3-2,6-2c2.69,0,5.78,1.28,6,2H3z M20,15v-3h3v-2h-3V7h-2v3h-3v2 h3v3H20z"/></g></svg>  Account
+                      </small>
+                    </a>
+                
+                  
+
+              
+                    <a href="{{path('app_logout')}}" id="parent">
+                      <small>
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="white"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg> Log Out
+                      </small> 
+                    </a>
+                
+
+              
+                    <a href="{{path('app_messages')}}" id="parent">
+                      <small id="mp">
+
+                      </small>
+
+                    </a>
+                
+
+              
+                    <a href="{{path('app_boutique_index')}}" id="parent">
+                      <small>
+                        
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+                          <path fill="white" d="M5,8h14c1.7,0,3-1.3,3-3s-1.3-3-3-3H5C3.3,2,2,3.3,2,5S3.3,8,5,8z M18,3.6c0.8,0,1.5,0.7,1.5,1.5S18.8,6.6,18,6.6s-1.5-0.7-1.5-1.5S17.2,3.6,18,3.6z M19,9H5c-1.7,0-3,1.3-3,3s1.3,3,3,3h14c1.7,0,3-1.3,3-3S20.7,9,19,9z M18,13.6
+                          c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5S18.8,13.6,18,13.6z M19,16H5c-1.7,0-3,1.3-3,3s1.3,3,3,3h14c1.7,0,3-1.3,3-3S20.7,16,19,16z M18,20.6c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5S18.8,20.6,18,20.6z"/>
+                      </svg> Mes business
+                      </small> 
+                    </a>
+                
+                
+               
+
+              {% else %}
+              
+              
+                  <a class="" id="parent" href="">Pin Fusee</a>
+                
+                
+              
+                  <a href="{{path('app_register')}}" id="parent">Register</a>
+                
+                
+              
+                  <a href="{{path('app_login')}}" id="parent">Connexion</a>
+                
+                
+                
+
+
+              {%endif%}
+            
+
+         
+          </div>
+        </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

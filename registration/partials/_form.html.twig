@@ -1,0 +1,39 @@
+
+
+
+
+{{form_start(registrationForm)}}
+<div class="col-md-4 mx-auto" style=" margin-bottom: 5%;" required autofocus>
+    
+    
+    
+    
+    
+    {{ form_row(registrationForm.imageFile, {'label':'profil picture'})}}
+
+    {{ form_row(registrationForm.username,{'label': 'username'} )}}
+
+    {{form_row(registrationForm.firstName, {'label':'firstname'})}}
+
+    {{form_row(registrationForm.lastName, {'label':'Last name'})}}
+
+    {{form_row(registrationForm.email, {'label':'e-mail'})}}
+   
+    {{form_row(registrationForm.birthAt, {'label':'Date of birth  '})}}
+    
+    {{form_row(registrationForm.phoneNumber)}} 
+    
+    {{form_row(registrationForm.adress, {'label':'city  '})}}
+    
+    {{form_row(registrationForm.profession, {'label':'profession  '})}} 
+    <br>
+    
+    
+    {{form_row(registrationForm.plainPassword ,{'label':'password  '})}}
+ 
+    {{ form_row(registrationForm.agreeTerms, {'label':'i accept all terms condition'}) }} 
+    
+
+    <button type="submit" class="btn btn-primary btn-block">Register</button>
+</div>
+{{ form_end(registrationForm) }}      

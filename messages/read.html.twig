@@ -1,0 +1,14 @@
+
+
+
+%extends 'pins/layouts/base.html.twig'%}
+
+{%block title message.sender.username %}
+
+{%block body%}
+    <h2>Author: {{message.sender.email}}</h2>
+    <p>le : {{message.createdAt|date}}</p>
+    <br>
+    <h3>le contenu: {{message.message}}</h3>
+
+{%endblock%}
